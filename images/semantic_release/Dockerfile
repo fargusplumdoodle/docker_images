@@ -6,7 +6,7 @@ FROM node:17.3.0
 #   helm cm-push ./budget registry
 #
 
-ENV HELM_VERSION=3.6.3
+ENV HELM_VERSION=3.7.2
 ENV ARCH=amd64
 
 RUN npm install --global \
