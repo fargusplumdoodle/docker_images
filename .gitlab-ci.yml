@@ -1,0 +1,9 @@
+---
+stages:
+  - build
+
+build:
+  stage: build
+  image: hub.sekhnet.ra/docker_image_builder:latest
+  script:
+    - sh ./build_all.sh
