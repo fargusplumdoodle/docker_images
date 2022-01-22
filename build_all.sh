@@ -33,12 +33,12 @@ do
     IMAGE_DIR=$dir
     IMAGE=$(get_current_image)
 
-    printf "Checking: $IMAGE"
+    printf "$IMAGE"
     if $(image_already_exists);
     then
 	printf " ...exists\n"
     else
-	printf " ...needs build\n"
+	printf " ...needs build\n\n\n"
 	(cd $IMAGE_DIR; build_and_push)
     fi
 
