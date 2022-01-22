@@ -8,8 +8,6 @@ FROM node:17.3.0
 
 ENV HELM_VERSION=3.6.3
 ENV ARCH=amd64
-ENV REGISTRY_HOST=https://helm.sekhnet.ra
-ENV REGISTRY_IP=10.0.1.80
 
 RUN npm install --global \
     "semantic-release" \
@@ -27,8 +25,6 @@ RUN wget https://get.helm.sh/helm-v$HELM_VERSION-linux-$ARCH.tar.gz \
 COPY ./sekhnet-*.crt /usr/local/share/ca-certificates/
 RUN update-ca-certificates
 
-RUN \
-    && helm plugin install https://github.com/chartmuseum/helm-push.git  \
-    && helm repo add registry $REGISTRY_HOST
+RUN helm plugin install https://github.com/chartmuseum/helm-push.git
 
 CMD ["bash"]
